@@ -71,7 +71,7 @@ const projectCard = {
     }
 };
 
-function Projects({ onBack }) {
+function Projects({ onBack, onSelectProject }) {
     return (
         <motion.section 
             id="projects" 
@@ -96,6 +96,7 @@ function Projects({ onBack }) {
                         key={project.title}
                         project={project}
                         variants={projectCard}
+                        onSelect={onSelectProject}
                     />
                 ))}
 

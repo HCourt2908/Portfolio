@@ -239,3 +239,15 @@ button.secondary {
 .navbar {
     z-index: 1000;
 }
+
+.project-details {
+    min-height: 100vh;
+    position: relative;
+
+    padding: 120px 8% 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function ProjectCard({ project, variants }) {
+function ProjectCard({ project, variants, onSelect }) {
     return (
         <motion.div className="project-card"
             variants={variants}
@@ -12,7 +12,7 @@ function ProjectCard({ project, variants }) {
             </h3>
 
             <p className="project-description">
-                {project.description}
+                {project.summary}
             </p>
 
             <div className="technologies">
@@ -23,7 +23,10 @@ function ProjectCard({ project, variants }) {
                 ))}
             </div>
 
-            <button className="project-button">
+            <button 
+                className="project-button"
+                onClick={() => onSelect(project)}
+            >
                 View Project
             </button>
 

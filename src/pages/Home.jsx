@@ -3,21 +3,31 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
+import ProjectDetails from "../components/ProjectDetails";
 
 function Home() {
     const [showProjects, setShowProjects] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
 
     return(
         <>
             <Navbar 
-                onProjects={() => setShowProjects(true)}
-                onHome={() => setShowProjects(false)}
+                onProjects={() => {setShowProjects(true); setSelectedProject(null);}}
+                onHome={() => {setShowProjects(false); setSelectedProject(null);}}
                 showProjects={showProjects}
             />
 
             <AnimatePresence mode="wait">
             {
-                showProjects ? (
+
+                selectedProject ? (
+
+                    <ProjectDetails
+                        project={selectedProject}
+                        onBack={() => setSelectedProject(null)}
+                    />
+
+                ) : showProjects ? (
 
                     <motion.div
                         key="projects"
@@ -27,7 +37,10 @@ function Home() {
                         transition={{ duration: 0.5 }}
                     >
 
-                        <Projects onBack={() => setShowProjects(false)} />
+                        <Projects 
+                            onBack={() => setShowProjects(false)} 
+                            onSelectProject={setSelectedProject}
+                        />
                     </motion.div>
 
                 ) : (
