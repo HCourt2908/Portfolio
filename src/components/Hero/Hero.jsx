@@ -1,4 +1,5 @@
 import { easeInOut, motion } from "framer-motion";
+import "./Hero.css";
 
 const textVariants = {
     hidden: {

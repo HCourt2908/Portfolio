@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import "./Navbar.css";
 
 function Navbar({ onProjects, onHome, showProjects }) {
     return (

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Projects from "../components/Projects";
-import ProjectDetails from "../components/ProjectDetails";
+import Navbar from "../components/Navbar/Navbar";
+import Hero from "../components/Hero/Hero";
+import Projects from "../components/Projects/Projects";
+import ProjectDetails from "../components/ProjectDetails/ProjectDetails";
 
 function Home() {
     const [showProjects, setShowProjects] = useState(false);

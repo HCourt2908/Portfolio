@@ -1,3 +1,5 @@
+import "./ProjectDetails.css";
+
 function ProjectDetails({ project, onBack }) {
 
     return (
@@ -28,15 +30,19 @@ function ProjectDetails({ project, onBack }) {
                     />
                 )}
 
+                <div className="project-buttons">
+
                 {project.github && (
-                    <a href={project.github}>
+                    <button onClick={() => window.open(project.github, '_blank', 'noopener, noreferrer')}>
                         View GitHub
-                    </a>
+                    </button>
                 )}
 
                 <button onClick={onBack}>
                     ← Back
                 </button>
+                
+                </div>
 
             </section>
 

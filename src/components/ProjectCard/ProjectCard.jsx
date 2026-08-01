@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./ProjectCard.css";
 
 function ProjectCard({ project, variants, onSelect }) {
     return (
