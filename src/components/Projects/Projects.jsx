@@ -2,6 +2,7 @@ import projects from "../../data/projects";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import "./Projects.css";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const projectsScreen = {
     hidden: {},
@@ -73,6 +74,15 @@ const projectCard = {
 };
 
 function Projects({ onBack, onSelectProject }) {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const visibleProjects = [
+        projects[currentIndex % projects.length],
+        projects[(currentIndex + 1) % projects.length],
+        projects[(currentIndex + 2) % projects.length]
+    ];
+
     return (
         <motion.section 
             id="projects" 
@@ -88,20 +98,32 @@ function Projects({ onBack, onSelectProject }) {
                 Projects
             </motion.h2>
 
-            <motion.div className="project-grid"
-                variants={projectContainer}
-            >
+            <div className="project-carousel">
 
-                {projects.map((project) => (
-                    <ProjectCard
-                        key={project.title}
-                        project={project}
-                        variants={projectCard}
-                        onSelect={onSelectProject}
-                    />
-                ))}
+                
+                <button className="scroll-button" onClick={() => setCurrentIndex((currentIndex - 1 + projects.length) % projects.length)}>
+                    ←
+                </button>
+                
 
-            </motion.div>
+                <motion.div className="project-grid" variants={projectContainer}>
+                    {visibleProjects.map((project) => (
+                        <ProjectCard
+                            key={project.title}
+                            project={project}
+                            variants={projectCard}
+                            onSelect={onSelectProject}
+                        />
+                    ))}
+                </motion.div>
+
+                
+                <button className="scroll-button" onClick={() => setCurrentIndex((currentIndex + 1) % projects.length)}>
+                    →
+                </button>
+                
+
+            </div>
 
             </div>
 

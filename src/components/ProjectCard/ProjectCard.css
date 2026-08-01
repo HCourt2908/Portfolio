@@ -1,0 +1,14 @@
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.technologies span {
+    background: #334155;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}

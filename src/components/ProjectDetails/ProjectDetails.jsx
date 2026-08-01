@@ -1,26 +1,45 @@
+import { motion } from "framer-motion";
 import "./ProjectDetails.css";
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: {
+        opacity: 0,
+        y: 50   
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.2,
+            ease: "easeOut"
+        }
+    }
+}
 
 function ProjectDetails({ project, onBack }) {
 
     return (
 
-            <section className="project-details">
+            <motion.section className="project-details" variants={containerVariants} initial="hidden" animate="visible">
 
-                <h1>{project.title}</h1>
+                <motion.h1 variants={itemVariants}>{project.title}</motion.h1>
 
-                <p>{project.summary}</p>
+                <motion.h3 variants={itemVariants}>{project.summary}</motion.h3>
+
+                <motion.div className="project-media" variants={itemVariants}>
 
                 {project.image && (
                     <img src={project.image} alt={project.title} />
                 )}
-
-               <h3>Project Details</h3>
-
-               <ul>
-                    {project.details.map((detail, index) => (
-                        <li key={index}>{detail}</li>
-                    ))}
-               </ul>
 
                 {project.youtube && (
                     <iframe 
@@ -30,7 +49,17 @@ function ProjectDetails({ project, onBack }) {
                     />
                 )}
 
-                <div className="project-buttons">
+                </motion.div>
+
+               <motion.h2 variants={itemVariants}>Project Details</motion.h2>
+
+               <motion.ul variants={itemVariants}>
+                    {project.details.map((detail, index) => (
+                        <li key={index}>{detail}</li>
+                    ))}
+               </motion.ul>
+
+                <motion.div className="project-buttons" variants={itemVariants}>
 
                 {project.github && (
                     <button onClick={() => window.open(project.github, '_blank', 'noopener, noreferrer')}>
@@ -42,9 +71,9 @@ function ProjectDetails({ project, onBack }) {
                     ← Back
                 </button>
                 
-                </div>
+                </motion.div>
 
-            </section>
+            </motion.section>
 
 
     );

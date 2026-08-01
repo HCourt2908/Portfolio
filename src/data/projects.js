@@ -57,6 +57,14 @@ const projects = [
         ],
         github: "https://github.com/HCourt2908/Nonogram-Solver",
         image: NonogramSolver
+    },
+
+    {
+        title: "poo",
+        summary: "poo",
+        technologies: [
+            "poo"
+        ],
     }
 ];
 

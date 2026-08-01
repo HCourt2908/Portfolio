@@ -22,10 +22,22 @@ function Home() {
 
                 selectedProject ? (
 
-                    <ProjectDetails
-                        project={selectedProject}
-                        onBack={() => setSelectedProject(null)}
-                    />
+                    <motion.div
+                        key="project-details"
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -100 }}
+                        transition={{ duration: 0.5 }}
+                    >
+
+                        <ProjectDetails
+                            project={selectedProject}
+                            onBack={() => setSelectedProject(null)}
+                        />
+
+                    </motion.div>
+
+                    
 
                 ) : showProjects ? (
 

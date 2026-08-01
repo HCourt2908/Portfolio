@@ -20,6 +20,13 @@
     text-align: center;
 }
 
+.project-carousel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 25px;
+    align-items: center;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -31,6 +38,9 @@
     padding: 30px;
     border-radius: 20px;
     transition: transform 0.3s ease;
+
+    height: 450px;
+    overflow: auto;
 
     display: flex;
     flex-direction: column;
@@ -44,19 +54,4 @@
 
 .project-card:hover {
     transform: translateY(-10px);
-}
-
-.technologies {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.technologies span {
-    background: #334155;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
 }
