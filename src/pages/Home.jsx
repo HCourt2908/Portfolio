@@ -4,9 +4,11 @@ import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
 import Projects from "../components/Projects/Projects";
 import ProjectDetails from "../components/ProjectDetails/ProjectDetails";
+import About from "../components/About Me/About";
 
 function Home() {
     const [showProjects, setShowProjects] = useState(false);
+    const [showAbout, setShowAbout] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
@@ -14,8 +16,10 @@ function Home() {
         <>
             <Navbar 
                 onProjects={() => {setShowProjects(true); setSelectedProject(null);}}
-                onHome={() => {setShowProjects(false); setSelectedProject(null);}}
+                onAbout={() => {setShowAbout(true); setSelectedProject(null); setShowProjects(false);}}
+                onHome={() => {setShowProjects(false); setSelectedProject(null); setShowAbout(false);}}
                 showProjects={showProjects}
+                showAbout={showAbout}
             />
 
             <AnimatePresence mode="wait">
@@ -52,12 +56,27 @@ function Home() {
 
                         <Projects 
                             onBack={() => setShowProjects(false)} 
+                            onNext={() => {setShowAbout(true); setShowProjects(false);}}
                             onSelectProject={setSelectedProject}
                             currentIndex={currentProjectIndex}
                             setCurrentIndex={setCurrentProjectIndex}
                         />
                     </motion.div>
 
+                ) : showAbout ? (
+
+                    <motion.div
+                        key="about"
+                        initial={{opacity:0, y:100}}
+                        animate={{opacity:1, y:0}}
+                        exit={{opacity:0, y:-100}}
+                        transition={{ duration: 0.5 }}
+                    >
+
+                        <About onBack={() => {setShowAbout(false); setShowProjects(true);}} />
+                    </motion.div>
+
+                    
                 ) : (
 
                     <motion.div
@@ -70,6 +89,7 @@ function Home() {
 
                         <Hero onNext={() => setShowProjects(true)}/>
                     </motion.div>
+
                 )
             }
 

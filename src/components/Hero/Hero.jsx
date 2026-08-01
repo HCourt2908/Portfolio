@@ -96,15 +96,24 @@ function Hero({ onNext }) {
 
             </motion.div>
 
+            
+
             <motion.button
                 className="scroll-button"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: 1, scale: 1, y: [-10, 0] }}
                 transition={{ delay: 1.8 }}
                 onClick={onNext}
             >
                 ↓
             </motion.button>
+
+            <motion.h3 className="scroll-text" 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, scale: 1, y: [-10, 0] }}
+                transition={{ delay: 1.8 }}>
+                Projects
+            </motion.h3>
 
         </section>
     );

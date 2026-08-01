@@ -55,3 +55,7 @@
 .project-card:hover {
     transform: translateY(-10px);
 }
+
+.projects h3 {
+    margin-top: 50px;
+}

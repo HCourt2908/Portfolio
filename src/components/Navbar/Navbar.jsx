@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import "./Navbar.css";
 
-function Navbar({ onProjects, onHome, showProjects }) {
+function Navbar({ onProjects, onAbout, onHome, showProjects, showAbout }) {
     return (
         <nav className="navbar">
 
@@ -10,14 +10,16 @@ function Navbar({ onProjects, onHome, showProjects }) {
                     View My Projects
                 </button>
 
-                <a href="#about">About Me </a>
+                <button onClick={onAbout}>
+                    About Me
+                </button>
             </div>
 
             <button className="logo" onClick={onHome}>
                 
                 <AnimatePresence mode="wait">
 
-                    {showProjects ? (
+                    {showProjects || showAbout ? (
                         <motion.span
                             key="home"
                             initial={{ opacity: 0, y: 20 }}

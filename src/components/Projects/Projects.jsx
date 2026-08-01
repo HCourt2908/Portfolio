@@ -72,7 +72,7 @@ const projectCard = {
     }
 };
 
-function Projects({ onBack, onSelectProject, currentIndex, setCurrentIndex }) {
+function Projects({ onBack, onNext, onSelectProject, currentIndex, setCurrentIndex }) {
 
     const visibleProjects = [
         projects[currentIndex % projects.length],
@@ -124,6 +124,12 @@ function Projects({ onBack, onSelectProject, currentIndex, setCurrentIndex }) {
 
             </div>
 
+            <div className="scroll-buttons">
+
+            <motion.h3 variants={buttonVariant}>
+                Home
+            </motion.h3>
+
             <motion.button
                 className="scroll-button"
                 variants={buttonVariant}
@@ -132,6 +138,20 @@ function Projects({ onBack, onSelectProject, currentIndex, setCurrentIndex }) {
                 ↑
             </motion.button>
 
+            <motion.button
+                className="scroll-button"
+                variants={buttonVariant}
+                onClick={onNext}
+            >
+                ↓
+            </motion.button>
+
+            <motion.h3 variants={buttonVariant}>
+                About Me
+            </motion.h3>
+
+            </div>
+            
         </motion.section>
     );
 }
