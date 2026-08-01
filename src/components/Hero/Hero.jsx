@@ -74,9 +74,14 @@ function Hero({ onNext }) {
                     </motion.button>
                 </a>
 
-                <motion.button variants={textVariants}>
-                    Download CV
-                </motion.button>
+                <a
+                    href="/Henry Court CV.pdf"
+                    download
+                >
+                    <motion.button variants={textVariants}>
+                        Download CV
+                    </motion.button>
+                </a>
             </div>
 
             </motion.div>
