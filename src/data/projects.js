@@ -1,6 +1,9 @@
 import MonsterHunterImage from "../assets/monster-hunter-planner.png";
 import ProjectAsphyxia from "../assets/project-asphyxia.png";
 import NonogramSolver from "../assets/nonogram-solver.png";
+import CornellBoxEngine from "../assets/cornell-box-engine.png";
+import MachineLearning from "../assets/machine-learning.png";
+import HighPerformanceComputing from "../assets/high-performance-computing.png";
 
 const projects = [
     {
@@ -34,7 +37,8 @@ const projects = [
             "Year 3 team project, collaboratively produced with 6 other students",
             "Created an immersive VR horror experience called Project Asphyxia",
             "Personally focused on accessibility, designing a novel locomotion system designed to reduce motion sickness",
-            "Personally designed the game map from scratch, using premade asset packs to create a customised and cohesive linear experience"
+            "Personally designed the game map from scratch, using premade asset packs to create a customised and cohesive linear experience",
+            "Achieved a score of 75, with strong positive feedback on the accessibility and linearity of the experience"
         ],
         github: null,
         image: ProjectAsphyxia,
@@ -60,11 +64,59 @@ const projects = [
     },
 
     {
-        title: "poo",
-        summary: "poo",
+        title: "Cornell Box Computer Graphics Engine",
+        summary: "A simple computer graphics engine that renders 3D models in 2D space",
         technologies: [
-            "poo"
+            "C++"
         ],
+        details: [
+            "A C++ ground-up computer graphics engine",
+            "Used rasterising and ray tracing techniques to render 3D models from .obj files",
+            "Implemented features such as soft shadows, advanced camera motions, and reflective and refractive materials",
+            "Achieved a score of 75"
+        ],
+        github: null,
+        image: CornellBoxEngine
+    },
+
+    {
+        title: "Exploration of Machine Learning Techniques",
+        summary: "Explored a variety of machine learning techniques and their applications to different datasets",
+        technologies: [
+            "Python",
+            "Scikit-learn",
+            "Pandas",
+            "Matplotlib",
+            "Numpy"
+        ],
+        details: [
+            "Explored and compared regression techniques such as linear regression, neural networks and bayesian linear regression",
+            "Explored and compared classification techniques such as decision trees, random forests and support machines on a PCA-reduced dataset",
+            "Explored and compared clustering techniques such as k-means and Gaussian mixture models using metrics such as silhouette score and rand index",
+            "Explored and compared hidden markov models for COVID-19 death prediction",
+            "Achieved a score of 86"
+        ],
+        github: null,
+        image: MachineLearning
+    },
+
+    {
+        title: "Optimising Lattice-Boltzmann for Isambard 3",
+        summary: "Optimised two implementations of Lattice Boltzmann algorithms for the Isambard 3 supercomputer",
+        technologies: [
+            "C",
+            "OpenMP",
+            "MPI"
+        ],
+        details: [
+            "Optimised an implementation of Lattice-Boltzmann using serialisation, vectorisation and OpenMP parallelisation",
+            "Achieved a speedup of 136x from skeleton to optimised version on 144 cores of Isambard 3",
+            "Optimised a second implementation of Lattice-Boltzmann using serialisation, vectorisation and MPI parallelisation",
+            "Achieved a speedup of 551x from serially optimised to MPI parallelised version on 576 cores across 4 nodes of Isambard 3",
+            "Achieved a score of 66"
+        ],
+        github:null,
+        image: HighPerformanceComputing
     }
 ];
 

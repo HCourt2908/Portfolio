@@ -2,7 +2,6 @@ import projects from "../../data/projects";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import "./Projects.css";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const projectsScreen = {
     hidden: {},
@@ -73,9 +72,7 @@ const projectCard = {
     }
 };
 
-function Projects({ onBack, onSelectProject }) {
-
-    const [currentIndex, setCurrentIndex] = useState(0);
+function Projects({ onBack, onSelectProject, currentIndex, setCurrentIndex }) {
 
     const visibleProjects = [
         projects[currentIndex % projects.length],

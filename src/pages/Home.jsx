@@ -8,6 +8,7 @@ import ProjectDetails from "../components/ProjectDetails/ProjectDetails";
 function Home() {
     const [showProjects, setShowProjects] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
     return(
         <>
@@ -52,6 +53,8 @@ function Home() {
                         <Projects 
                             onBack={() => setShowProjects(false)} 
                             onSelectProject={setSelectedProject}
+                            currentIndex={currentProjectIndex}
+                            setCurrentIndex={setCurrentProjectIndex}
                         />
                     </motion.div>
 
