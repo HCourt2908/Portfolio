@@ -73,7 +73,10 @@ function Home() {
                         transition={{ duration: 0.5 }}
                     >
 
-                        <About onBack={() => {setShowAbout(false); setShowProjects(true);}} />
+                        <About 
+                            onBack={() => {setShowAbout(false); setShowProjects(true);}}
+                            onNext={() => {}} 
+                        />
                     </motion.div>
 
                     

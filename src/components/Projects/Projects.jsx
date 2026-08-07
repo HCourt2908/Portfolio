@@ -35,10 +35,20 @@ const projectContainer = {
     visible: {
         transition: {
             staggerChildren: 0.2,
-            delayChildren: 0.2
         }
     }
 };
+
+const carouselContainer = {
+    hidden: {},
+
+    visible: {
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.2
+        }
+    }
+}
 
 const buttonVariant = {
     hidden: {
@@ -72,6 +82,38 @@ const projectCard = {
     }
 };
 
+const leftArrowVariant = {
+    hidden: {
+        opacity: 0,
+        x: -50
+    },
+
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.3,
+            delay: 0.2
+        }
+    }
+};
+
+const rightArrowVariant = {
+    hidden: {
+        opacity: 0,
+        x: 50
+    },
+
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 0.3,
+            delay: 0.9
+        }
+    }
+};
+
 function Projects({ onBack, onNext, onSelectProject, currentIndex, setCurrentIndex }) {
 
     const visibleProjects = [
@@ -95,12 +137,12 @@ function Projects({ onBack, onNext, onSelectProject, currentIndex, setCurrentInd
                 Projects
             </motion.h2>
 
-            <div className="project-carousel">
+            <motion.div className="project-carousel" variants={carouselContainer} initial="hidden" animate="visible">
 
                 
-                <button className="scroll-button" onClick={() => setCurrentIndex((currentIndex - 1 + projects.length) % projects.length)}>
+                <motion.button className="scroll-button" variants={leftArrowVariant} onClick={() => setCurrentIndex((currentIndex - 1 + projects.length) % projects.length)}>
                     ←
-                </button>
+                </motion.button>
                 
 
                 <motion.div className="project-grid" variants={projectContainer}>
@@ -115,12 +157,12 @@ function Projects({ onBack, onNext, onSelectProject, currentIndex, setCurrentInd
                 </motion.div>
 
                 
-                <button className="scroll-button" onClick={() => setCurrentIndex((currentIndex + 1) % projects.length)}>
+                <motion.button className="scroll-button" variants={rightArrowVariant} onClick={() => setCurrentIndex((currentIndex + 1) % projects.length)}>
                     →
-                </button>
+                </motion.button>
                 
 
-            </div>
+            </motion.div>
 
             </div>
 
@@ -128,7 +170,7 @@ function Projects({ onBack, onNext, onSelectProject, currentIndex, setCurrentInd
 
             <motion.h3 variants={buttonVariant}>
                 Home
-            </motion.h3>
+            </motion.h3> 
 
             <motion.button
                 className="scroll-button"
