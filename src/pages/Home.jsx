@@ -5,21 +5,25 @@ import Hero from "../components/Hero/Hero";
 import Projects from "../components/Projects/Projects";
 import ProjectDetails from "../components/ProjectDetails/ProjectDetails";
 import About from "../components/About Me/About";
+import Contact from "../components/Contact Me/Contact"
 
 function Home() {
     const [showProjects, setShowProjects] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
+    const [showContact, setShowContact] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
     const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
     return(
         <>
             <Navbar 
-                onProjects={() => {setShowProjects(true); setSelectedProject(null);}}
-                onAbout={() => {setShowAbout(true); setSelectedProject(null); setShowProjects(false);}}
-                onHome={() => {setShowProjects(false); setSelectedProject(null); setShowAbout(false);}}
+                onProjects={() => {setShowProjects(true); setSelectedProject(null); setShowAbout(false); setShowContact(false);}}
+                onAbout={() => {setShowAbout(true); setSelectedProject(null); setShowProjects(false); setShowContact(false)}}
+                onHome={() => {setShowProjects(false); setSelectedProject(null); setShowAbout(false); setShowContact(false);}}
+                onContact={() => {setShowContact(true); setShowProjects(false); setSelectedProject(null); setShowAbout(false);}}
                 showProjects={showProjects}
                 showAbout={showAbout}
+                showContact={showContact}
             />
 
             <AnimatePresence mode="wait">
@@ -75,11 +79,27 @@ function Home() {
 
                         <About 
                             onBack={() => {setShowAbout(false); setShowProjects(true);}}
-                            onNext={() => {}} 
+                            onNext={() => {setShowAbout(false); setShowContact(true);}} 
                         />
                     </motion.div>
 
                     
+                ) : showContact ? (
+
+                    <motion.div
+                        key="contact"
+                        initial={{opacity:0, y:100}}
+                        animate={{opacity:1, y:0}}
+                        exit={{opacity:0, y:-100}}
+                        transition={{ duration: 0.5 }}
+                    >
+
+                        <Contact 
+                            onBack={() => {setShowContact(false); setShowAbout(true);}}
+                        />
+
+                    </motion.div>
+
                 ) : (
 
                     <motion.div

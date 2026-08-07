@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import "./Navbar.css";
 
-function Navbar({ onProjects, onAbout, onHome, showProjects, showAbout }) {
+function Navbar({ onProjects, onAbout, onHome, onContact, showProjects, showAbout, showContact }) {
     return (
         <nav className="navbar">
 
@@ -19,7 +19,7 @@ function Navbar({ onProjects, onAbout, onHome, showProjects, showAbout }) {
                 
                 <AnimatePresence mode="wait">
 
-                    {showProjects || showAbout ? (
+                    {showProjects || showAbout || showContact ? (
                         <motion.span
                             key="home"
                             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,9 @@ function Navbar({ onProjects, onAbout, onHome, showProjects, showAbout }) {
             </button>
 
             <div className="nav-right">
-                <a href="#contact">Contact Me </a>
+                <button onClick={onContact}>
+                    Contact Me
+                </button>
                 <a href="https://github.com/HCourt2908/" target="_blank">Visit My Github</a>
             </div>
         </nav>
