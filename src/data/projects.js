@@ -26,10 +26,28 @@ const projects = [
     },
 
     {
+        title: "Seamount Secrets - An OceanX Game",
+        summary: "A point-and-click detective web game created for OceanX to educate people about seamount ecosystems",
+        technologies: [
+            "Unity",
+            "C#"
+        ],
+        details: [
+            "2026 internship project, collaborating with MyWorld",
+            "Was project manager and game developer for an interdisciplinary team of five students",
+            "Developed a proof-of-concept web game in 5 weeks, adapting an interactive exhibit from Singapore’s ArtScience Museum",
+        ],
+        github: "https://github.com/HCourt2908/eDNA-Detectives/",
+        youtube: "https://www.youtube.com/embed/kXw6zFBInEM",
+        game: "/seamount-secrets/index.html",
+    },
+
+    {
         title: "VR Horror Experience",
         summary: "A Unity VR horror experience focused on accessiblity and immersion.",
         technologies: [
             "Unity",
+            "VR",
             "C#",
             "XR Interaction Toolkit"
         ],
